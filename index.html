@@ -1,0 +1,237 @@
+﻿<html>
+<head>
+	<title>Ntou 720∘ View</title>
+	<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+
+	<script type="text/javascript" src="map.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="menu.js"></script>
+	<!--<script type="text/javascript" src="arrow.js"></script>-->
+	<script type="text/javascript" src="map_data.js"></script>
+	<!--<script type="text/javascript" src="keyboard.js"></script>-->
+	<script type="text/javascript" src="mini_map.js" defer="defer"></script>
+	<script type="text/javascript" src="information.js" defer="defer"></script>
+
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+</head>
+
+<!-- onmousemove="get_view_degree()" ontouchmove="get_view_degree()"-->
+<!--<body onload="load_map_data()">-->
+<body>
+
+<!-- 2D arrow at left-down -->
+
+<!--<div id="arrow2D_button" class="arrow2D-button">
+	<a href="#" id="arrow2D_button_text">關閉2D箭頭</a>
+</div>	
+<div class="arrow2D_board">
+	<div id="arrow1" class="arrow2D_arrow" style="transform:rotate(315deg);" onclick="arrow_mouse_click('NW')"></div>
+	<div id="arrow2" class="arrow2D_arrow" style="transform:rotate(  0deg); background-image:url(Panorama_Figures/arrow/ba.png);" onclick="arrow_mouse_click('N')"></div>
+	<div id="arrow3" class="arrow2D_arrow" style="transform:rotate( 45deg);" onclick="arrow_mouse_click('NE')"></div>
+	<div id="arrow4" class="arrow2D_blank"></div>
+	
+	<div id="arrow5" class="arrow2D_arrow" style="transform:rotate(270deg); background-image:url(Panorama_Figures/arrow/dba.png);" onclick="arrow_mouse_click('W')"></div>
+	<div id="arrow0" class="arrow2D_compass" style="" onclick="arrow_mouse_click(' ')"></div>
+	<div id="arrow6" class="arrow2D_arrow" style="transform:rotate( 90deg); background-image:url(Panorama_Figures/arrow/dba.png);" onclick="arrow_mouse_click('E')"></div>
+	<div id="arrow7" class="arrow2D_floorchange" style="transform:scaleX(-1.0);" onclick="arrow_mouse_click('U')">
+	</div>
+
+	<div id="arrow8" class="arrow2D_arrow" style="transform:rotate(225deg);" onclick="arrow_mouse_click('SW')"></div>
+	<div id="arrow9" class="arrow2D_arrow" style="transform:rotate(180deg); background-image:url(Panorama_Figures/arrow/pa.png);" onclick="arrow_mouse_click('S')"></div>
+	<div id="arrow10" class="arrow2D_arrow" style="transform:rotate(135deg);" onclick="arrow_mouse_click('SE')"></div>
+	<div id="arrow11" class="arrow2D_floorchange" style="transform:scaleY(-1.0);" onclick="arrow_mouse_click('D')"></div>
+</div>-->
+
+<!-- information at right-up -->
+<div id="infor_button" class="information-button">
+	<!--<a href="#" id="infor_button_text">資訊</a>-->
+	<span id="infor_text">這裡是濱海校門口</span>
+</div>
+
+
+
+<!-- menu at left-up -->
+<div class="menu">
+	
+
+  <ul class="drop-down-menu">
+	<!--<a id="menu_head" class="menu-head" href="#" onclick="menu_show()">展開目錄</a>-->
+	 <div class="drop-down-menu-left">
+           <input  class = "listbutton" type = "image" src = "Panorama_Figures/school/list.png" alt="send" name="menu_head" id = "menu_head" onclick="menu_show()">
+    </div>
+	  <div class="drop-down-menu-right">
+  <li><a id = "menu_school_Xiangfeng" href="#" onclick="floor_set('Xiangfeng_school')">祥豐校區</a>
+  	  <ul>
+  	  	<li><a id = "MFE" href="#MFE" onclick="background_teleport('Xiangfeng_school', 'p19')">食品工程系館</a></li>
+  	  	<li><a id = "CLS" href="#CLS" onclick="background_teleport('Xiangfeng_school', 'p20')">生命科學院</a></li>
+  	  	<li><a id = "FSH" href="#FSH" onclick="background_teleport('Xiangfeng_school', 'p21')">環漁系館</a></li>
+  	  	<li><a id = "menu_school_4" href="#p22" onclick="background_teleport('Xiangfeng_school', 'p22')">環態所</a></li>
+  	  	<li><a id = "FRB" href="#FRB" onclick="background_teleport('Xiangfeng_school', 'p25')">學生第一餐廳(夢泉商場)</a></li>
+  	  </ul>
+  </li>
+
+  <li><a id = "menu_school_sea" href="#" onclick="floor_set('sea_school')">濱海校區</a>
+  	  <ul>
+  	  	<li><a id = "SE"  href="#SE"  onclick="background_teleport('sea_school','g01')">濱海校門</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p07')">海空大樓</a></li>
+  	  	<li><a id = "STM" href="#STM" onclick="background_teleport('sea_school','p08')">航管系館</a></li>
+  	  	<li><a id = "IVY" href="#IVY" onclick="background_teleport('sea_school','p09')">沛華大樓</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p10')">延平大樓</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p11_2')">商船大樓</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p12')">機械B館</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p13')">機械A館(電算中心)</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p14')">綜合研究中心</a></li>
+  	  	<li><a id = "SAH" href="#SAH" onclick="background_teleport('sea_school','p23_2')">圖書館</a></li>
+  	  </ul>
+  </li>
+
+  <li><a id = "menu_school_engineering" href="#" onclick="floor_set('engineering_school')">工學院</a>
+  	  <ul>
+  	  	<li><a id = "GYM" href="#GYM" onclick="background_teleport('engineering_school','p26')">體育館</a></li>
+  	  	<li><a id = "SAC" href="#SAC" onclick="background_teleport('engineering_school','p27')">學生活動中心</a></li>
+  	  </ul>
+  </li>
+</div>
+  <!--<li><a id="menu_B1F" href="#" onclick="floor_set('B1F')">B1F</a>
+	  <ul>
+		<li><a id="menu_B1F_1" href="#" onclick="background_teleport('B1F','t80')">全興書苑</a></li>
+		<li><a id="menu_B1F_2" href="#" onclick="background_teleport('B1F','t79')">罕用書庫</a></li>
+	  </ul>
+	</li>
+	
+ 	<li><a id="menu_1F" href="#" onclick="floor_set('1F')">1F</a>
+	  <ul>
+		<li><a id="menu_1F_1" href="#" onclick="background_teleport('1F','t62')">展示空間</a></li>
+		<li><a id="menu_1F_2" href="#" onclick="background_teleport('1F','t59')">臨時閱讀區</a></li>
+		<li><a id="menu_1F_3" href="#" onclick="background_teleport('1F','t55')">採編組辦公室</a></li>
+		<li><a id="menu_1F_4" href="#" onclick="background_teleport('1F','t55')">圖書系統組辦公室</a></li>
+		<li><a id="menu_1F_5" href="#" onclick="background_teleport('1F','t63')">藝文中心辦公室</a></li>
+	  </ul>
+	</li>
+	
+	<li ><a id="menu_2F" href="#" onclick="floor_set('2F')">2F</a>
+	  <ul>
+		<li><a id="menu_2F_1" href="#" onclick="background_teleport('2F','2F_4')">入口</a></li>
+		<li><a id="menu_2F_2" href="#" onclick="background_teleport('2F','2F_ITS')">互動觸控系統</a></li>
+		<li><a id="menu_2F_3" href="#" onclick="background_teleport('2F','2F_inf')">資訊檢索區</a></li>		
+		<li><a id="menu_2F_4" href="#" onclick="background_teleport('2F','2F_ref7')">參考資料區</a></li>
+		<li><a id="menu_2F_5" href="#" onclick="background_teleport('2F','2F_AVM2')">視聽資料區</a></li>
+		<li><a id="menu_2F_6" href="#" onclick="background_teleport('2F','2F_GVR')">團體視聽區</a></li>	
+		<li><a id="menu_2F_7" href="#" onclick="background_teleport('2F','2F_CDR')">討論室</a></li>	
+		<li><a id="menu_2F_8" href="#" onclick="background_teleport('2F','t09_2')">新書展示區</a></li>
+		<li><a id="menu_2F_9" href="#" onclick="background_teleport('2F','2F_4')">借還書櫃台</a></li>
+		<li><a id="menu_2F_10"href="#" onclick="background_teleport('2F','2F_ref2')">多媒體區</a></li>
+		<li><a id="menu_2F_11"href="#" onclick="background_teleport('2F','t05')">閱覽組辦公室、參考諮詢組辦公室</a></li>
+	  </ul>
+	</li>
+	
+	<li><a id="menu_3F" href="#" onclick="floor_set('3F')">3F</a>
+	  <ul>
+		<li><a id="menu_3F_1" href="#" onclick="background_teleport('3F','t12')">學報區</a></li>	  
+		<li><a id="menu_3F_2" href="#" onclick="background_teleport('3F','3F_center4')">西文期刊合訂區</a></li>
+		<li><a id="menu_3F_3" href="#" onclick="background_teleport('3F','t29')">中文期刊合訂區</a></li>
+		<li><a id="menu_3F_4" href="#" onclick="background_teleport('3F','t13')">過期報紙合訂區</a></li>
+		<li><a id="menu_3F_5" href="#" onclick="background_teleport('3F','3F_VRexpe2')">夢幻海洋</a></li>
+		<li><a id="menu_3F_6" href="#" onclick="background_teleport('3F','3F_center8')">個人研究小間</a></li>	
+		<li><a id="menu_3F_7" href="#" onclick="background_teleport('3F','t20')">期刊辦公室</a></li>	
+	  </ul>		
+	</li>
+	
+	<li><a id="menu_4F" href="#" onclick="floor_set('4F')">4F</a>
+	  <ul>
+		<li><a id="menu_4F_1" href="#" onclick="background_teleport('4F','4F_yellow80')">西文書庫區</a></li>
+		<li><a id="menu_4F_2" href="#" onclick="background_teleport('4F','t85')">日文期刊合訂區</a></li>
+		<li><a id="menu_4F_3" href="#" onclick="background_teleport('4F','4F_center')">本校博碩論文區</a></li>
+		<li><a id="menu_4F_4" href="#" onclick="background_teleport('4F','4F_OR2')">童書、指定參考書室</a></li>
+		<li><a id="menu_4F_5" href="#" onclick="background_teleport('4F','4F_4')">罕用書區</a></li>
+	  </ul>			
+	</li>
+	
+	<li><a id="menu_5F" href="#" onclick="floor_set('5F')">5F</a>
+	  <ul>
+		<li><a id="menu_5F_1" href="#" onclick="background_teleport('5F','5F_green72')">中日文書庫</a></li>
+		<li><a id="menu_5F_2" href="#" onclick="background_teleport('5F','5F_green01')">視聽資料典藏室</a></li>
+		<li><a id="menu_5F_3" href="#" onclick="background_teleport('5F','5F_1')">特藏室</a></li>
+	  </ul>
+	</li>
+	
+	<li><a id="menu_annex_3F" href="#" onclick="floor_set('annex_3F')">二館3F</a>
+	  <ul>
+		<li><a id="menu_annex_3F_1" href="#" onclick="background_teleport('annex_3F','t31_2')">資訊素養教室</a></li>
+		<li><a id="menu_annex_3F_2" href="#" onclick="background_teleport('annex_3F','t33_2')">副處長室</a></li>
+	  </ul>			
+	</li>
+	<li><a id="menu_annex_4F" href="#" onclick="floor_set('annex_4F')">二館4F</a>	
+	  <ul>
+		<li><a id="menu_annex_4F_1" href="#" onclick="background_teleport('annex_4F','t37')">閱覽區</a></li>
+		<li><a id="menu_annex_4F_2" href="#" onclick="background_teleport('annex_4F','O2F_6')">現刊區</a></li>
+		<li><a id="menu_annex_4F_3" href="#" onclick="background_teleport('annex_4F','t35')">資訊檢索服務區</a></li>
+	  </ul>	
+	</li>-->
+	
+  </ul>
+
+</div>
+
+<!-- mini_map at right-down -->
+<div id="mini_map_board" class="mini-map">
+ 	<div id="mini_map_point" class="mini-map_point"></div>
+</div>
+<div id="mini_map_button" class="mini-map-button">
+	<a href="#" id="mini_map_button_text">收起</a>
+</div>
+
+<!-- background -->
+<div class="myEmbeddedScene">
+  <a-scene embedded ><!-- webvr code -->
+    <a-assets><!-- background sourse --> 
+      <!--Xiang_feng-->
+      <img crossorigin="anonymous" id="p20" src="Panorama_Figures/school/p20.jpg">
+      <!--sea_school-->
+      <img crossorigin="anonymous" id="g01" src="Panorama_Figures/school/g01.jpg">
+      <img crossorigin="anonymous" id="p26" src="Panorama_Figures/school/p26.jpg">
+      <img crossorigin="anonymous" id="compass" src="Panorama_Figures/school/north_2.png">
+	  <!-- 2F-image -->
+	  <!--<img crossorigin="anonymous" id="FloorPlan_2F" src="Panorama_Figures/2F/FloorPlan_2F.PNG">	  
+	  <img crossorigin="anonymous" id="2F_4" src="Panorama_Figures/2F/2F_4.jpg">-->
+
+	  <!-- 3F-image -->
+	 <!-- <img crossorigin="anonymous" id="FloorPlan_3F" src="Panorama_Figures/3F/FloorPlan_3F_2.png">	
+	  <img crossorigin="anonymous" id="3F_stairs" src="Panorama_Figures/3F/3F_stairs.jpg">-->
+	  
+	  <!-- 4F-image -->
+	  <!--<img crossorigin="anonymous" id="FloorPlan_4F" src="Panorama_Figures/4F/FloorPlan_4F.PNG">
+	  <img crossorigin="anonymous" id="4F_center" src="Panorama_Figures/4F/4F_center.jpg">	-->	
+  
+	  <!-- 5F-image -->
+	  <!--<img crossorigin="anonymous" id="FloorPlan_5F" src="Panorama_Figures/5F/FloorPlan_5F.PNG">
+	  <img crossorigin="anonymous" id="5F_green72" src="Panorama_Figures/5F/5F_green72.jpg">-->
+ 
+	  <!-- Annex-image -->  
+	  <!--<img crossorigin="anonymous" id="FloorPlan_annex_3F" src="Panorama_Figures/annex/FloorPlan_AF.png">
+	  <img crossorigin="anonymous" id="FloorPlan_annex_4F" src="Panorama_Figures/annex/FloorPlan_AF.png">
+	  <img crossorigin="anonymous" id="O2F_con2" src="Panorama_Figures/annex/O2F_con2.jpg">		
+	  <img crossorigin="anonymous" id="t34" src="Panorama_Figures/annex/t34.jpg">-->
+
+	  <!-- 1F-image -->
+	  <!--<img crossorigin="anonymous" id="FloorPlan_1F" src="Panorama_Figures/1F/FloorPlan_1F_2.png">
+	  <img crossorigin="anonymous" id="t60" src="Panorama_Figures/1F/t60.jpg">-->
+	  
+	  <!-- B1F-image -->
+	  <!--<img crossorigin="anonymous" id="FloorPlan_B1F" src="Panorama_Figures/B1/FloorPlan_B1F_2.png">
+	  <img crossorigin="anonymous" id="t71" src="Panorama_Figures/B1/t71.jpg">-->
+	</a-assets>
+
+	<!-- sky/background -->
+    <a-sky id="sky" rotation="0 -90 0" src="#g01"></a-sky>
+	<!-- camera -->
+	<a-camera id="camera" rotation="0 0 0" look-controls wasd-controls-enabled="false" look-controls reverse-mouse-drag="true" cursor="rayOrigin: mouse"></a-camera>
+	<!-- light -->
+    <a-light type="point" intensity="2" position="0 2 0"></a-light>
+  </a-scene>
+</div>
+
+</body>
+</html>

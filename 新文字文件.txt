@@ -1,0 +1,6 @@
+不用箭頭(arrow.js keyboard.js不用)
+不用預載多張(更改LOAD MAP DATA方式)
+找對應(information.js)
+
+http://igl.cse.ntou.edu.tw/1062VR_AR/index10.html
+http://li.ntou.edu.tw/intro_arrange.php
