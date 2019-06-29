@@ -1,5 +1,5 @@
 //邱：修正dropdown menu在螢幕大小改變時會消失的問題----------------
-$(document).ready(function(){
+/*$(document).ready(function(){
 	$(window).resize(function(){
 		var w=$(window).width();
 		console.log("w"+w);
@@ -12,12 +12,11 @@ $(document).ready(function(){
 			document.getElementById("menu_head").innerHTML = "展開目錄";		
 		}
 	});
-})
+})*/
 //邱-----------------end----------------------------------
 function menu_show()//whether show menu in mobile
 {
 	if($("ul.drop-down-menu li").css('display') == "none"){
-		$(".menu").css('background-color', 'rgba(0, 64, 128, 0.8)');
 		$(".menu").animate({width:"15%"});
 		$("ul.drop-down-menu li").css('display','block');
 		$("ul.drop-down-menu li ul li").css('display','block');
@@ -26,7 +25,6 @@ function menu_show()//whether show menu in mobile
 	}
 	else{
 		$(".menu").animate({width:"0%"});
-		$(".menu").css('background-color', 'transparent');
 		$("ul.drop-down-menu li").css('display','none');
 		$(".listbutton").attr('src','Panorama_Figures/school/list.png');
 		//document.getElementById("menu_head").innerHTML = "展開目錄";

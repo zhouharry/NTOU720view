@@ -68,7 +68,7 @@ function information_set()
 		    	    itext="學生活動中心";break;
 		    }
 		break;
-		case "2F":
+		/*case "2F":
 			switch(floor_texture[position_y][position_x]){
 				case "2F_4":
 					itext="入口大廳、服務台、借書/還書櫃台";break;
@@ -439,7 +439,7 @@ function information_set()
 					itext="閱覽區";break;					
 				case "t38":
 					itext="閱覽區";break;	
-			}
+			}*/
 	}
 	//set text
 	if(itext)
