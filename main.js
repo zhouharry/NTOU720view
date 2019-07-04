@@ -10,7 +10,9 @@ function start()
 {
 	//get param
 	floor_name = UrlParam.param("floor");
+	console.log(floor_name);
 	pos_name = UrlParam.param("pos");
+	console.log(pos_name)
 	/*arrow_set();*/
 	//floor_set("enterance");
     background_teleport(floor_name, pos_name);
