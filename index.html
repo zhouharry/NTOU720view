@@ -4,7 +4,8 @@
 	<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-
+    
+    <script type="text/javascript" src="getUrlParam.js"></script>
 	<script type="text/javascript" src="map.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="menu.js"></script>
@@ -21,6 +22,10 @@
 <!--<body onload="load_map_data()">-->
 <body>
 
+<script>
+	var a = UrlParam.paramValues("a");
+	console.log(a);
+</script>
 <!-- 2D arrow at left-down -->
 
 <!--<div id="arrow2D_button" class="arrow2D-button">
