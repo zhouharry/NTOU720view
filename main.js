@@ -4,11 +4,16 @@ var sceneEl;
 var sky;
 var arrow_up;
 var arrow_down;
+var floor_name;
+var pos_name;
 function start()
 {
+	//get param
+	floor_name = UrlParam.param("floor");
+	pos_name = UrlParam.param("pos");
 	/*arrow_set();*/
-	floor_set("enterance");
-
+	//floor_set("enterance");
+    background_teleport(floor_name, pos_name);
 	//arrow_2D_set();
 	window.setInterval(get_view_degree, 50); 
 }
